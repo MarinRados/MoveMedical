@@ -9,21 +9,45 @@
 /* Begin PBXBuildFile section */
 		6B2045E72B87FCDB0001CB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2045E62B87FCDB0001CB27 /* AppDelegate.swift */; };
 		6B2045E92B87FCDB0001CB27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2045E82B87FCDB0001CB27 /* SceneDelegate.swift */; };
-		6B2045EB2B87FCDB0001CB27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2045EA2B87FCDB0001CB27 /* ViewController.swift */; };
+		6B2045EB2B87FCDB0001CB27 /* AppointmentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2045EA2B87FCDB0001CB27 /* AppointmentsListViewController.swift */; };
 		6B2045EE2B87FCDB0001CB27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B2045EC2B87FCDB0001CB27 /* Main.storyboard */; };
 		6B2045F02B87FCDD0001CB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2045EF2B87FCDD0001CB27 /* Assets.xcassets */; };
 		6B2045F32B87FCDD0001CB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B2045F12B87FCDD0001CB27 /* LaunchScreen.storyboard */; };
+		6B2046072B8837780001CB27 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2046062B8837780001CB27 /* Coordinator.swift */; };
+		6B2046092B8837B50001CB27 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2046082B8837B50001CB27 /* MainCoordinator.swift */; };
+		6B20460C2B8838110001CB27 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B20460B2B8838110001CB27 /* UIViewController+Extensions.swift */; };
+		6B20460F2B883A590001CB27 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B20460E2B883A590001CB27 /* AppointmentTableViewCell.swift */; };
+		6B2046112B883AD30001CB27 /* UIVIew+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2046102B883AD30001CB27 /* UIVIew+Extensions.swift */; };
+		6B2046132B883F1D0001CB27 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2046122B883F1D0001CB27 /* UIColor+Extensions.swift */; };
+		6B2046152B88414A0001CB27 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2046142B88414A0001CB27 /* BaseNavigationController.swift */; };
+		6B2046192B8845950001CB27 /* CreateAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2046182B8845950001CB27 /* CreateAppointmentViewController.swift */; };
+		6B20461C2B8845CA0001CB27 /* AppointmentsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B20461B2B8845CA0001CB27 /* AppointmentsListViewModel.swift */; };
+		6B2046212B884E5F0001CB27 /* CreateAppointmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2046202B884E5F0001CB27 /* CreateAppointmentViewModel.swift */; };
+		6B2046232B88554B0001CB27 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2046222B88554B0001CB27 /* String+Extensions.swift */; };
+		6B3B97AA2B885DB000E8381E /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3B97A92B885DB000E8381E /* Appointment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6B2045E32B87FCDB0001CB27 /* MoveMedical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveMedical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2045E62B87FCDB0001CB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B2045E82B87FCDB0001CB27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6B2045EA2B87FCDB0001CB27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6B2045EA2B87FCDB0001CB27 /* AppointmentsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsListViewController.swift; sourceTree = "<group>"; };
 		6B2045ED2B87FCDB0001CB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6B2045EF2B87FCDD0001CB27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B2045F22B87FCDD0001CB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B2045F42B87FCDD0001CB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B2046062B8837780001CB27 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		6B2046082B8837B50001CB27 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		6B20460B2B8838110001CB27 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		6B20460E2B883A590001CB27 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		6B2046102B883AD30001CB27 /* UIVIew+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Extensions.swift"; sourceTree = "<group>"; };
+		6B2046122B883F1D0001CB27 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		6B2046142B88414A0001CB27 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		6B2046182B8845950001CB27 /* CreateAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAppointmentViewController.swift; sourceTree = "<group>"; };
+		6B20461B2B8845CA0001CB27 /* AppointmentsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsListViewModel.swift; sourceTree = "<group>"; };
+		6B2046202B884E5F0001CB27 /* CreateAppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAppointmentViewModel.swift; sourceTree = "<group>"; };
+		6B2046222B88554B0001CB27 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		6B3B97A92B885DB000E8381E /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +80,59 @@
 		6B2045E52B87FCDB0001CB27 /* MoveMedical */ = {
 			isa = PBXGroup;
 			children = (
+				6B3B97A82B885D8B00E8381E /* Models */,
+				6B2046172B88457E0001CB27 /* Create */,
+				6B20460D2B883A3B0001CB27 /* List */,
+				6B20460A2B8838000001CB27 /* Extensions */,
 				6B2045E62B87FCDB0001CB27 /* AppDelegate.swift */,
 				6B2045E82B87FCDB0001CB27 /* SceneDelegate.swift */,
-				6B2045EA2B87FCDB0001CB27 /* ViewController.swift */,
 				6B2045EC2B87FCDB0001CB27 /* Main.storyboard */,
 				6B2045EF2B87FCDD0001CB27 /* Assets.xcassets */,
 				6B2045F12B87FCDD0001CB27 /* LaunchScreen.storyboard */,
 				6B2045F42B87FCDD0001CB27 /* Info.plist */,
+				6B2046062B8837780001CB27 /* Coordinator.swift */,
+				6B2046082B8837B50001CB27 /* MainCoordinator.swift */,
+				6B2046142B88414A0001CB27 /* BaseNavigationController.swift */,
 			);
 			path = MoveMedical;
+			sourceTree = "<group>";
+		};
+		6B20460A2B8838000001CB27 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6B20460B2B8838110001CB27 /* UIViewController+Extensions.swift */,
+				6B2046102B883AD30001CB27 /* UIVIew+Extensions.swift */,
+				6B2046122B883F1D0001CB27 /* UIColor+Extensions.swift */,
+				6B2046222B88554B0001CB27 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6B20460D2B883A3B0001CB27 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				6B2045EA2B87FCDB0001CB27 /* AppointmentsListViewController.swift */,
+				6B20460E2B883A590001CB27 /* AppointmentTableViewCell.swift */,
+				6B20461B2B8845CA0001CB27 /* AppointmentsListViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		6B2046172B88457E0001CB27 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				6B2046182B8845950001CB27 /* CreateAppointmentViewController.swift */,
+				6B2046202B884E5F0001CB27 /* CreateAppointmentViewModel.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		6B3B97A82B885D8B00E8381E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6B3B97A92B885DB000E8381E /* Appointment.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +206,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B2045EB2B87FCDB0001CB27 /* ViewController.swift in Sources */,
+				6B2046072B8837780001CB27 /* Coordinator.swift in Sources */,
+				6B2045EB2B87FCDB0001CB27 /* AppointmentsListViewController.swift in Sources */,
+				6B2046212B884E5F0001CB27 /* CreateAppointmentViewModel.swift in Sources */,
+				6B20460F2B883A590001CB27 /* AppointmentTableViewCell.swift in Sources */,
+				6B2046192B8845950001CB27 /* CreateAppointmentViewController.swift in Sources */,
+				6B20461C2B8845CA0001CB27 /* AppointmentsListViewModel.swift in Sources */,
 				6B2045E72B87FCDB0001CB27 /* AppDelegate.swift in Sources */,
+				6B2046092B8837B50001CB27 /* MainCoordinator.swift in Sources */,
+				6B20460C2B8838110001CB27 /* UIViewController+Extensions.swift in Sources */,
+				6B2046232B88554B0001CB27 /* String+Extensions.swift in Sources */,
+				6B3B97AA2B885DB000E8381E /* Appointment.swift in Sources */,
+				6B2046112B883AD30001CB27 /* UIVIew+Extensions.swift in Sources */,
+				6B2046132B883F1D0001CB27 /* UIColor+Extensions.swift in Sources */,
+				6B2046152B88414A0001CB27 /* BaseNavigationController.swift in Sources */,
 				6B2045E92B87FCDB0001CB27 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 95LU24Z84R;
+				DEVELOPMENT_TEAM = R9K68WP8ET;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveMedical/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -305,7 +385,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = marinrados.MoveMedical;
+				PRODUCT_BUNDLE_IDENTIFIER = marinrados.movemedicalproject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -320,7 +400,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 95LU24Z84R;
+				DEVELOPMENT_TEAM = R9K68WP8ET;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoveMedical/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -333,7 +413,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = marinrados.MoveMedical;
+				PRODUCT_BUNDLE_IDENTIFIER = marinrados.movemedicalproject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

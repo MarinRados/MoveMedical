@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import UIKit
+
+public protocol Coordinator: AnyObject {
+    
+    @discardableResult
+    func start() -> UIViewController
+}
