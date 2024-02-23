@@ -34,6 +34,7 @@ class AppointmentsListViewController: UIViewController {
         setupConstraints()
         NotificationCenter.default.addObserver(self, selector: #selector(updateList), name: Notification.Name("listUpdated"), object: nil)
         viewModel.getAppointments()
+        emptyStateLabel.isHidden = !viewModel.appointments.isEmpty
     }
     
     // MARK: - User Interaction
@@ -41,6 +42,7 @@ class AppointmentsListViewController: UIViewController {
     @objc private func updateList() {
         viewModel.getAppointments()
         tableView.reloadData()
+        emptyStateLabel.isHidden = !viewModel.appointments.isEmpty
     }
     
     @objc private func createTapped() {
@@ -60,9 +62,26 @@ class AppointmentsListViewController: UIViewController {
     
     private func setupConstraints() {
         tableView.anchorToSafeArea()
+        emptyStateLabel.centerYInSuperview()
+        emptyStateLabel.anchor(leading: (view.leadingAnchor, 60), trailing: (view.trailingAnchor, 60))
     }
     
     // MARK: - UI Elements
+    
+    private lazy var emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "You currently don't have any appointments scheduled. Tap here to schedule an appointment."
+        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.isHidden = true
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(createTapped))
+        label.addGestureRecognizer(tap)
+        view.addSubview(label)
+        return label
+    }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
