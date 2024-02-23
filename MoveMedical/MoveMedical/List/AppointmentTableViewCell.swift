@@ -19,7 +19,6 @@ class AppointmentTableViewCell: UITableViewCell {
     
     private lazy var dateTimeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Test"
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.textColor = UIColor.colorFromHex(hex: "#F7F2FA")
         contentView.addSubview(label)
@@ -28,7 +27,6 @@ class AppointmentTableViewCell: UITableViewCell {
     
     private lazy var locationLabel: UILabel = {
         let label = UILabel()
-        label.text = "Test"
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.textColor = UIColor.colorFromHex(hex: "#F7F2FA")
         contentView.addSubview(label)
@@ -37,7 +35,6 @@ class AppointmentTableViewCell: UITableViewCell {
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Test"
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         label.textColor = .white
         contentView.addSubview(label)
@@ -63,5 +60,14 @@ class AppointmentTableViewCell: UITableViewCell {
         locationLabel.anchor(bottom: (containerView.bottomAnchor, 10), leading: (descriptionLabel.leadingAnchor, 0))
         dateTimeLabel.anchor(bottom: (containerView.bottomAnchor, 10), trailing: (containerView.trailingAnchor, 16))
         containerView.addShadow(offset: CGSize(width: 0, height: 3), color: UIColor.black, radius: 3, opacity: 0.2)
+    }
+    
+    var model: Appointment? {
+        didSet {
+            guard let model = model else { return }
+            descriptionLabel.text = model.description
+            locationLabel.text = model.location
+            dateTimeLabel.text = model.date.formatted()
+        }
     }
 }

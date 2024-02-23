@@ -9,14 +9,29 @@ import Foundation
 
 final class AppointmentsListViewModel {
     
-    var onShowEdit: (()-> Void)?
+    var appointments: [Appointment] = []
+    private let appointmentService: AppointmentServiceProtocol
+    
+    init(appointmentService: AppointmentServiceProtocol) {
+        self.appointmentService = appointmentService
+    }
+    
+    var onShowEdit: ((Appointment)-> Void)?
     var onShowCreate: (()-> Void)?
+    
+    func getAppointments() {
+        appointments = appointmentService.getAppointments()
+    }
+    
+    func deleteAppointment(at index: Int) {
+        appointmentService.deleteAppointment(appointments[index])
+    }
     
     func showCreate() {
         onShowCreate?()
     }
     
-    func showEdit() {
-        onShowEdit?()
+    func showEdit(index: Int) {
+        onShowEdit?(appointments[index])
     }
 }

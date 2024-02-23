@@ -27,17 +27,33 @@ class AppointmentsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.colorFromHex(hex: "1D1B20")
-        navigationItem.title = "Your appointments"
+        navigationItem.title = "My appointments"
         let createButton = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(createTapped))
         navigationItem.rightBarButtonItem = createButton
         navigationItem.rightBarButtonItem?.tintColor = .white
         setupConstraints()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateList), name: Notification.Name("listUpdated"), object: nil)
+        viewModel.getAppointments()
     }
     
     // MARK: - User Interaction
     
+    @objc private func updateList() {
+        viewModel.getAppointments()
+        tableView.reloadData()
+    }
+    
     @objc private func createTapped() {
         viewModel.showCreate()
+    }
+    
+    private func delete(at index: Int) {
+        let alert = UIAlertController(title: "Delete appointment", message: "Are you sure you want to delete this appointment?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            self?.viewModel.deleteAppointment(at: index)
+        }))
+        present(alert, animated: false)
     }
     
     // MARK: - Constraints
@@ -64,11 +80,12 @@ class AppointmentsListViewController: UIViewController {
 extension AppointmentsListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.appointments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentTableViewCell", for: indexPath) as? AppointmentTableViewCell else { return UITableViewCell() }
+        cell.model = viewModel.appointments[indexPath.row]
         return cell
     }
     
@@ -77,7 +94,15 @@ extension AppointmentsListViewController: UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.showEdit()
+        viewModel.showEdit(index: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
+            guard let self = self else {return}
+            self.delete(at: indexPath.row)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
 

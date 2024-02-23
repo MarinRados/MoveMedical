@@ -34,6 +34,8 @@ class CreateAppointmentViewController: UIViewController {
             textField.text = appointment.description
             datePicker.date = appointment.date
             locationPicker.selectRow(viewModel.selectedLocationRow(savedLocation: appointment.location), inComponent: 0, animated: false)
+            descriptionLabel.text = "Appointment description"
+            deleteButton.isHidden = false
             let attributedString = NSAttributedString(string: "Update Appointment", attributes: [
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .semibold),
                 NSAttributedString.Key.foregroundColor: UIColor.colorFromHex(hex: "1D1B20")
@@ -57,7 +59,33 @@ class CreateAppointmentViewController: UIViewController {
         }
         let date = datePicker.date
         let location = viewModel.locations[locationPicker.selectedRow(inComponent: 0)]
-        
+        let uuid = UUID().uuidString
+        let appointment = Appointment(id: uuid, description: description, date: date, location: location)
+        viewModel.createAppointment(appointment)
+        dismiss(animated: true)
+    }
+    
+    @objc private func updateTapped() {
+        guard let description = textField.text, let uuid = appointment?.id else {
+            displayDescriptionWarning()
+            return
+        }
+        let date = datePicker.date
+        let location = viewModel.locations[locationPicker.selectedRow(inComponent: 0)]
+        let appointment = Appointment(id: uuid, description: description, date: date, location: location)
+        viewModel.updateAppointment(appointment)
+        dismiss(animated: true)
+    }
+    
+    @objc private func deleteTapped() {
+        guard let appointment = appointment else { return }
+        let alert = UIAlertController(title: "Delete appointment", message: "Are you sure you want to delete this appointment?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            self?.viewModel.deleteAppointment(appointment)
+            self?.dismiss(animated: true)
+        }))
+        present(alert, animated: false)
     }
     
     // MARK: - Constraints
@@ -70,6 +98,7 @@ class CreateAppointmentViewController: UIViewController {
         datePicker.centerXInSuperview()
         datePicker.anchor(top: (locationPicker.bottomAnchor, 30))
         createButton.anchor(top: (datePicker.topAnchor, 100), leading: (view.leadingAnchor, 40), trailing: (view.trailingAnchor, 40), size: CGSize(width: 0, height: 56))
+        deleteButton.anchor(top: (view.safeAreaLayoutGuide.topAnchor, 20), trailing: (view.trailingAnchor, 20), size: CGSize(width: 0, height: 40))
     }
     
     // MARK: - UI Elements
@@ -129,8 +158,26 @@ class CreateAppointmentViewController: UIViewController {
             NSAttributedString.Key.foregroundColor: UIColor.colorFromHex(hex: "1D1B20")
         ])
         button.setAttributedTitle(attributedString, for: .normal)
-        button.addTarget(self, action: #selector(createTapped), for: .touchUpInside)
+        if appointment != nil {
+            button.addTarget(self, action: #selector(updateTapped), for: .touchUpInside)
+        } else {
+            button.addTarget(self, action: #selector(createTapped), for: .touchUpInside)
+        }
         button.layer.cornerRadius = 15
+        view.addSubview(button)
+        return button
+    }()
+    
+    private lazy var deleteButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.clear
+        let attributedString = NSAttributedString(string: "Delete", attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .semibold),
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ])
+        button.setAttributedTitle(attributedString, for: .normal)
+        button.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
+        button.isHidden = true
         view.addSubview(button)
         return button
     }()
